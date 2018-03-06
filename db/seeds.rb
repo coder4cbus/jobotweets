@@ -14,4 +14,16 @@ u = User.find_or_create_by!(
   city: "Westerville",
   state: "Ohio",
 )
-u.tweets.find_or_create_by!(message: "something about my food today")
+# u.tweets.find_or_create_by!(message: "something about my food today")
+
+puts "User Joe created? #{u.persisted?}"
+puts "Destroying Tweets"
+u.tweets.destroy_all
+puts "\t I now have #{u.tweets.count} tweets"
+
+source = [ Faker::Movie, Faker::BackToTheFuture, Faker::DrWho, Faker::Simpsons ]
+
+20.times do
+  putc "."
+u.tweets.create!(message: source.sample.quote)
+end
