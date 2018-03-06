@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.find_or_create_by!(
+u = User.find_or_create_by!(
   first_name: "Joe",
   last_name:  "O'Brien",
   username: "objo",
@@ -14,4 +14,4 @@ User.find_or_create_by!(
   city: "Westerville",
   state: "Ohio",
 )
-lorem_s_long
+u.tweets.find_or_create_by!(message: "something about my food today")
