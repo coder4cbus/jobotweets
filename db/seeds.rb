@@ -25,5 +25,8 @@ source = [ Faker::Movie, Faker::BackToTheFuture, Faker::DrWho, Faker::Simpsons ]
 
 20.times do
   putc "."
-u.tweets.create!(message: source.sample.quote)
+u.tweets.create!(message: source.sample.quote, created_at: Faker::Date.between(2.months.ago, Time.now)
+)
 end
+
+puts "done"
