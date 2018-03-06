@@ -10,9 +10,9 @@ User.destroy.all
 u = User.create!(
   first_name: "Joe",
   last_name:  "O'Brien",
-  email: 'coder4cbus@gmail.com'
-  password: 'TTSb00tcamp'
-  password_confirmation: 'TTSb00tcamp'
+  email: 'coder4cbus@gmail.com',
+  password: 'TTSb00tcamp',
+  password_confirmation: 'TTSb00tcamp',
   username: "objo",
   bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   city: "Westerville",
