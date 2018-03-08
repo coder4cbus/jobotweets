@@ -1,18 +1,28 @@
 <h1>My User Profile</h1>
 
-<div class="left side">
+<div class="left_side">
 <%= image_tag "default_user.jpg", alt: "Coder4Cbus User Image", height: '100px' %>
 <p><%= @user.username %></p>
 <p><%= @user.full_name %></p>
 <p><%= @user.location %></p>
 <p><%= @user.bio %></p>
+
+  <% unless @user.id == current_user.id  %>
+    <% if current_user.following.include?(@user.id.to_s) %>
+      <p><%= link_to "Stop Following ME!!!", unfollow_user_path(@user.id) %></p>
+    <% else %>
+      <p><%= link_to "Follow Me, NOW!", follow_user_path(@user.id) %></p>
+    <% end %>
+  <% end %>
+
 </div>
 
-<div class="right side">
-<% @user.tweets.each do |tweet| %>
+<div class="right_side">
+
+<% @tweets.each do |tweet| %>
 <div class="tweet">
+  <p>@<%= tweet.user.username %></p>
   <p><%= tweet.message %></p>
-    <p>Created:<%= time_ago_in_words(tweet.created_at) %> ago!</p>
+    <p class="tweet-date">Created:<%= time_ago_in_words(tweet.created_at) %> ago!</p></div>
 <% end %>
-</div>
 <h3> /Users/eileenulry/Dropbox/twitter/app/views/users </h3>
